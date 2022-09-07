@@ -16,6 +16,15 @@ public class App
         t2.start();
         t1.start();
 
+      //  A ob=new A();
+
+     //  Thread t3=new Thread(new T(ob));
+      //  Thread t4=new Thread(new X(ob));
+      //  t3.start();
+     //   t4.start();
+
+
+
 
     }
 }
@@ -51,4 +60,39 @@ class XXX implements Runnable{
         }
     }
 }
+
+
+class T implements Runnable{
+    A a;
+    T(A a){
+        this.a=a;
+    }
+
+    @Override
+    public void run() {
+
+            while (true) {
+                a.produce();
+            }
+
+    }
+
+}
+
+class X implements Runnable{
+    A a;
+    X(A a){
+        this.a=a;
+    }
+
+    @Override
+    public void run() {
+
+            while (true) {
+                a.consume();
+            }
+
+    }
+}
+
 

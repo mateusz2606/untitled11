@@ -10,20 +10,21 @@ public class Producer{
         this.tab=tab;
     }
    synchronized public void produce() throws InterruptedException {
-        synchronized (tab) {
 
-            while (tab.size() == 5) {
-                System.out.println("producer wait");
-                tab.wait();
-            }
-            Thread.sleep(1000);
-            tab.add("aaa: " + i);
-            System.out.println("producer element");
+       synchronized (tab) {
+           while (tab.size() == 5) {
+               System.out.println("producer wait");
+               tab.wait();
+           }
+           Thread.sleep(1000);
+           tab.add("aaa: " + i);
+           System.out.println("producer element");
 
            tab.notifyAll();
 
-        }
-    }
+
+       }
+   }
 
 
 
